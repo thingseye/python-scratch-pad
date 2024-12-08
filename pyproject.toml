@@ -1,0 +1,48 @@
+[project]
+name = "scratch-pad"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+scratch-pad = "scratch_pad:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29.5",
+    "mypy>=1.13.0",
+    "pytest>=8.3.4",
+    "pytest-cov>=6.0.0",
+    "ruff>=0.8.2",
+]
+
+[tool.ruff]
+line-length = 119
+indent-width = 4
+extend-include = ["*.ipynb"]
+fix = true
+namespace-packages = ["src"]
+show-fixes = true
+src = ["src"]
+
+[tool.ruff.analyze]
+detect-string-imports = true
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+indent-style = "space"
+line-ending = "lf"
+quote-style = "double"
+skip-magic-trailing-comma = false
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["D203", "D213", "D400", "D401", "D415"]
+task-tags = ["TODO", "FIXME", "XXX"]
